@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			.col-lg-6
+				form.form-horizontal.required-validate(method="post",action="/admin/user/update/new",enctype="multipart/form-data",style="margin-bottom:100px;") 
+						input#userId(type="hidden",name="user[id]",value=user._id)
+						.form-group
+							label.col-sm-2.control-label(for="inputHeadPortrait") 用户头像
+							.col-sm-10.tl.th
+								input#inputHeadPortrait.file-loading.form-control(type="file",name="user[headportrait]",value=user.headportrait)
+						.form-group
+							label.col-sm-2.control-label(for="inputTitle") 用户名字
+							.col-sm-10
+								input#inputTitle.form-control(type="text",name="user[name]",value="#{user.name}")
+						.form-group
+							.col-sm-offset-2.col-sm-10
+							button.btn.btn-default(type="submit") 录入
+		//- .row
+		//- 	.col-lg-6
+		//- 		h1 fileinput-example
+		//- 		form(method="POST",action="#")
+		//- 			.form-group
+		//- 				label(for="inputHeadPortrait") 文件输入
+		//- 				input#inputHeadPortrait(type="file",name="file")
+		//- 			button.btn.btn-default(type="submit") 提交
+	
+block scripts
+	script(src="/js/admin.js")
+	script(src="/js/uploadfile.js")
